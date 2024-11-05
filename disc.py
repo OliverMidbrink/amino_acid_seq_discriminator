@@ -95,7 +95,9 @@ if __name__ == "__main__":
     n_epoch_ = 2
     n_CV_ = 5
     train_frac_ = 0.8
-    seeds_ = list(range(n_CV_))
+    #seeds_ = list(range(n_CV_))
+    seeds_ = [random.randint(0, 10000000) for _ in range(n_CV_)]
+
 
     n_chars_ = len(tools.chars)
     max_seq_len_ = 100
