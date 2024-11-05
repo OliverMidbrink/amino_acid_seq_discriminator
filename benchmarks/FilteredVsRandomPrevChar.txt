@@ -1,0 +1,5 @@
+Seed/CV: 0, Mean loss: 1.2580499649047852
+Seed/CV: 1, Mean loss: 1.2601875066757202
+Seed/CV: 2, Mean loss: 1.254570722579956
+Seed/CV: 3, Mean loss: 1.2754838466644287
+Seed/CV: 4, Mean loss: 1.2739509344100952
