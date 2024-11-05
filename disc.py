@@ -6,15 +6,15 @@ import torch
 from tqdm import tqdm
 
 # Function parameters are as above
-def run_discrimination_experiment(n_epoch, n_CV, train_frac, seeds, n_chars, max_seq_len, name):
+def run_discrimination_experiment(comp1, comp2, n_epoch, n_CV, train_frac, seeds, n_chars, max_seq_len, name):
     for seed in seeds:
         random.seed(seed)
         torch.manual_seed(seed)
 
-        with open('seq_1.txt', 'r') as f:
+        with open(comp1, 'r') as f:
             seq_1 = [item.replace("\n", "") for item in f.readlines()]
 
-        with open('seq_2.txt', 'r') as f:
+        with open(comp2, 'r') as f:
             seq_2 = [item.replace("\n", "") for item in f.readlines()]
 
         random.shuffle(seq_1)
@@ -88,7 +88,7 @@ def run_discrimination_experiment(n_epoch, n_CV, train_frac, seeds, n_chars, max
                 mean_loss += loss / (len(seq_1_test) + len(seq_2_test)) / n_epoch
 
         with open(name, 'a') as f:
-            f.write(f"Seed/CV: {seed}, Mean loss: {mean_loss}\n")
+            f.write(f"Seed: {seed}, Distance (1/mean_loss): {1/mean_loss}\n")
 
 
 if __name__ == "__main__":
@@ -102,6 +102,8 @@ if __name__ == "__main__":
     n_chars_ = len(tools.chars)
     max_seq_len_ = 100
 
-    name_ = "FilteredHalf2VsFilteredHalf2.txt"
+    name_ = "uniform_vs_filtered.txt"
+    comp_1 = 'R_synth.txt'
+    comp_2 = 'filtered.txt'
 
-    run_discrimination_experiment(n_epoch_, n_CV_, train_frac_, seeds_, n_chars_, max_seq_len_, name_)
+    run_discrimination_experiment(comp_1, comp_2, n_epoch_, n_CV_, train_frac_, seeds_, n_chars_, max_seq_len_, name_)

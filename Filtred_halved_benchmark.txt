@@ -1,0 +1,5 @@
+Seed: 2287888, Distance (1/mean_loss): 1.326119065284729
+Seed: 5767982, Distance (1/mean_loss): 1.340036392211914
+Seed: 1970940, Distance (1/mean_loss): 1.3294769525527954
+Seed: 3330143, Distance (1/mean_loss): 1.3546340465545654
+Seed: 649283, Distance (1/mean_loss): 1.3532533645629883
